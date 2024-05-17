@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class DailyService {
     private final DailyRepository dailyRepository;
+
     public DailyService(DailyRepository dailyRepository) {
         this.dailyRepository = dailyRepository;
     }
@@ -41,12 +42,11 @@ public class DailyService {
 
     // 4. 선택한 일정 수정
     @Transactional
-    public Long updateDaily(Long id,String password,DailyRequestDto requestDto) {
+    public Long updateDaily(Long id, String password, DailyRequestDto requestDto) {
         Daily daily = findDaily(id);
-        if(daily.getPassword().equals(password)){
+        if (daily.getPassword().equals(password)) {
             daily.update(requestDto);
-        }
-        else{
+        } else {
             System.out.println("비밀번호가 일치하지 않습니다.");
         }
 
@@ -55,19 +55,16 @@ public class DailyService {
     }
 
     // 5. 선택한 일정 삭제
-    public Long deleteDaily(Long id,String password,DailyRequestDto requestDto) {
+    public Long deleteDaily(Long id, String password, DailyRequestDto requestDto) {
         Daily daily = findDaily(id);
-        if(daily.getPassword().equals(password)){
+        if (daily.getPassword().equals(password)) {
             dailyRepository.delete(daily);
-        }
-        else{
+        } else {
             System.out.println("비밀번호가 일치하지 않습니다.");
         }
 
         return id;
     }
-
-
 
 
     /* Utils */

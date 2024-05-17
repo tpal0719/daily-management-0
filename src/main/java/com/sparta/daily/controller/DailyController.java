@@ -33,11 +33,11 @@ public class DailyController {
 
     @PutMapping("/dailys/{id}/{password}")
     public Long updateDaily(@PathVariable("id") Long id,@PathVariable("password")String password, @RequestBody DailyRequestDto requestDto) {
-        return dailyService.updateDaily(id,password,requestDto);
-    }
+            return dailyService.updateDaily(id,password,requestDto);
+        }
 
-    @DeleteMapping("/dailys/{id}/{password}")
-    public Long deleteDaily(@PathVariable("id") Long id,@PathVariable("password")String password, @RequestBody DailyRequestDto requestDto) {
-        return dailyService.deleteDaily(id,password,requestDto);
+        @DeleteMapping("/dailys/{id}/{password}")
+        public Long deleteDaily(@PathVariable("id") Long id,@PathVariable("password")String password, @RequestBody DailyRequestDto requestDto) {
+            return dailyService.deleteDaily(id,password,requestDto);
     }
 }
