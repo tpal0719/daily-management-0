@@ -34,7 +34,7 @@ public class DailyService {
 
     // 2. 선택 할일 조회
     public DailyResponseDto getDailyById(Long id) {
-        return new DailyResponseDto(findDaily(id));
+        return new DailyResponseDto(dailyUtils.findDaily(id,dailyRepository));
     }
 
     // 3. 일정 목록 조회
