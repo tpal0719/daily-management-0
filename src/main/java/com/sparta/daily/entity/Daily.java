@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "daily") // 매핑할 테이블의 이름을 지정
 @NoArgsConstructor
-public class Daily extends Timestamped{
+public class Daily extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,18 +24,33 @@ public class Daily extends Timestamped{
     @Column(name = "password", nullable = false)
     private String password;    //비밀번호
 
+    //    public Daily(DailyRequestDto requestDto) {
+//        this.title = requestDto.getTitle();
+//        this.contents = requestDto.getContents();
+//        this.writer = requestDto.getWriter();
+//        this.password = requestDto.getPassword();
+//    }
+
+    //  피드백: Java Record type 적용
     public Daily(DailyRequestDto requestDto) {
-        this.title = requestDto.getTitle();
-        this.contents = requestDto.getContents();
-        this.writer = requestDto.getWriter();
-        this.password = requestDto.getPassword();
+        this.title = requestDto.title();
+        this.contents = requestDto.contents();
+        this.writer = requestDto.writer();
+        this.password = requestDto.password();
     }
 
+    //    public void update(DailyRequestDto requestDto) {
+//        this.title = requestDto.getTitle();
+//        this.contents = requestDto.getContents();
+//        this.writer = requestDto.getWriter();
+//        this.password = requestDto.getPassword();
+//    }
+
+    //  피드백: Java Record type 적용
     public void update(DailyRequestDto requestDto) {
-        this.title = requestDto.getTitle();
-        this.contents = requestDto.getContents();
-        this.writer = requestDto.getWriter();
-        this.password = requestDto.getPassword();
+        this.title = requestDto.title();
+        this.contents = requestDto.contents();
+        this.writer = requestDto.writer();
+        this.password = requestDto.password();
     }
-
 }
