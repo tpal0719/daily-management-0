@@ -1,4 +1,4 @@
-package com.sparta.daily;
+package com.sparta.daily.util;
 
 import com.sparta.daily.entity.Daily;
 import com.sparta.daily.repository.DailyRepository;

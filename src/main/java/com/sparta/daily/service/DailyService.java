@@ -1,6 +1,6 @@
 package com.sparta.daily.service;
 
-import com.sparta.daily.DailyUtils;
+import com.sparta.daily.util.DailyUtils;
 import com.sparta.daily.dto.DailyRequestDto;
 import com.sparta.daily.dto.DailyResponseDto;
 import com.sparta.daily.entity.Daily;
