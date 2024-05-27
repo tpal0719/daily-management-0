@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity // JPA가 관리할 수 있는 Entity 클래스 지정
 @Getter
 @Setter
@@ -24,12 +27,9 @@ public class Daily extends Timestamped {
     @Column(name = "password", nullable = false)
     private String password;    //비밀번호
 
-    //    public Daily(DailyRequestDto requestDto) {
-//        this.title = requestDto.getTitle();
-//        this.contents = requestDto.getContents();
-//        this.writer = requestDto.getWriter();
-//        this.password = requestDto.getPassword();
-//    }
+    @OneToMany(mappedBy = "comment")
+    private List<Comment> commentList = new ArrayList<>();
+
 
     //  피드백: Java Record type 적용
     public Daily(DailyRequestDto requestDto) {
@@ -39,12 +39,6 @@ public class Daily extends Timestamped {
         this.password = requestDto.password();
     }
 
-    //    public void update(DailyRequestDto requestDto) {
-//        this.title = requestDto.getTitle();
-//        this.contents = requestDto.getContents();
-//        this.writer = requestDto.getWriter();
-//        this.password = requestDto.getPassword();
-//    }
 
     //  피드백: Java Record type 적용
     public void update(DailyRequestDto requestDto) {

@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4e28dc-ea34-4210-a6b4-613e4c443931" name="Changes" comment="">
+    <list default="true" id="8e4e28dc-ea34-4210-a6b4-613e4c443931" name="Changes" comment="비밀번호 확인">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f1b5d6e9-bb11-4c7e-9a12-090563446fb0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f1b5d6e9-bb11-4c7e-9a12-090563446fb0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/daily/DailyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/util/DailyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/daily/entity/Daily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/entity/Daily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sparta/daily/service/DailyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sparta/daily/service/DailyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +96,7 @@
     "Spring Boot.DailyApplication.executor": "Run",
     "Spring Boot.DailyManagementApplication.executor": "Run",
     "Spring Boot.SpringMvcApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/SpartaCodingClub/LECTURE/memo",
@@ -117,7 +126,7 @@
       <recent name="D:\SpartaCodingClub\personal_project\daily-management\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.daily-management [build]">
     <configuration name="DailyApplicationTests.contextLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
