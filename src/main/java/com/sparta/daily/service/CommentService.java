@@ -23,10 +23,13 @@ public class CommentService {
     public CommentResponseDto writeComment(CommentRequestDto requestDto) {
         Comment comment = new Comment(requestDto);
 
-        //선택한 일정의 ID를 입력 받지 않은 경우
-        if(requestDto.getDailyId().describeConstable().isEmpty()){
 
-            throw new IllegalArgumentException("일정이 선택되지 않았습니다.");
+        System.out.println("requestDto.getDailyId() = " + requestDto.getDailyId());
+        //선택한 일정의 ID를 입력 받지 않은 경우
+        if(requestDto.getDailyId()==null
+        || requestDto.getDailyId().toString().isBlank()
+        || requestDto.getDailyId().toString().isEmpty()){
+            throw new NullPointerException("일정이 선택되지 않았습니다.");
         }
         // 일정이 DB에 저장되지 않은 경우
         Daily daily = dailyRepository.findDailyById(requestDto.getDailyId()).orElseThrow(
