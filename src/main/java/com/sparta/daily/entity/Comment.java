@@ -21,7 +21,7 @@ public class Comment extends Timestamped{
     Long dailyId;
 
     @Column(name = "userid", nullable = false)
-    Long userId;
+    String userId;
 
     @Column(name = "contents", nullable = true)
     String contents;
@@ -31,6 +31,10 @@ public class Comment extends Timestamped{
         this.dailyId = requestDto.getDailyId();
         this.userId = requestDto.getUserId();
         this.contents = requestDto.getContents();
+    }
+
+    public void update(String contents) {
+        this.contents = contents;
     }
 
 }

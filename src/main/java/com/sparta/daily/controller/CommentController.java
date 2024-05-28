@@ -3,10 +3,7 @@ package com.sparta.daily.controller;
 import com.sparta.daily.dto.CommentRequestDto;
 import com.sparta.daily.dto.CommentResponseDto;
 import com.sparta.daily.service.CommentService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -22,6 +19,15 @@ public class CommentController {
     @PostMapping("/comment")
     public CommentResponseDto writeComment(@RequestBody CommentRequestDto requestDto) {
         return commentService.writeComment(requestDto);
+    }
+
+    //댓글 수정
+    @PutMapping("/comment/{userid}/{id}/{dailyId}")
+    public CommentResponseDto updateComment(@PathVariable ("userid")String userid,
+                                            @PathVariable("id") Long id,
+                                            @PathVariable("dailyId") Long dailyId,
+                                            @RequestBody String contents) {
+        return commentService.updateComment(userid,id,dailyId,contents);
     }
 
 

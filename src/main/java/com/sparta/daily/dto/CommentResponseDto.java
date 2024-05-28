@@ -3,15 +3,17 @@ package com.sparta.daily.dto;
 import com.sparta.daily.entity.Comment;
 import com.sparta.daily.entity.Daily;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Getter
+@NoArgsConstructor
 public class CommentResponseDto {
 
     private Long id;
     private Long dailyId;
-    private Long userId;
+    private String userId;
     private String contents;
 
     private LocalDateTime createdAt;
