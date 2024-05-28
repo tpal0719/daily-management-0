@@ -20,14 +20,30 @@ public class CommentController {
     public CommentResponseDto writeComment(@RequestBody CommentRequestDto requestDto) {
         return commentService.writeComment(requestDto);
     }
+    /*
+    {
+        "dailyId":"1",
+        "userId":"1",
+        "contents":"댓글내용"
+    }
+
+     */
 
     //댓글 수정
-    @PutMapping("/comment/{userid}/{id}/{dailyId}")
+    @PutMapping("/comment/{userid}/{id}/{dailyid}")
     public CommentResponseDto updateComment(@PathVariable ("userid")String userid,
                                             @PathVariable("id") Long id,
-                                            @PathVariable("dailyId") Long dailyId,
+                                            @PathVariable("dailyid") Long dailyId,
                                             @RequestBody String contents) {
         return commentService.updateComment(userid,id,dailyId,contents);
+    }
+
+    //댓글 삭제
+    @DeleteMapping("/comment/{userid}/{id}/{dailyid}")
+    public Long deleteComment(@PathVariable("userid") String userid,
+                              @PathVariable("id") Long id,
+                              @PathVariable("dailyid") Long dailyId){
+        return commentService.deleteComment(userid,id,dailyId);
     }
 
 

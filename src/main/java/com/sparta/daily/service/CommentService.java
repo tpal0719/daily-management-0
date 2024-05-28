@@ -72,4 +72,27 @@ public class CommentService {
         return new CommentResponseDto(comment);
 
     }
+
+    public Long deleteComment(String userid,Long id, Long dailyId) {
+        // 선택한 일정이나 댓글의 ID를 입력받지 않은 경우
+        if(dailyId==null || id==null){
+            throw new NullPointerException("일정이나 댓글이 입력되지 않았습니다.");
+        }
+        // 일정이나 댓글이 DB에 저장되지 않은 경우
+        Comment comment = commentRepository.findAllByIdAndDailyId(id,dailyId).orElseThrow(
+                ()-> new NullPointerException("해당하는 댓글이 존재하지 않습니다.")
+        );
+        // 선택한 댓글의 사용자가 현재 사용자와 일치하지 않은 경우
+        if(comment.getUserId().equals(userid)){
+            throw new IllegalArgumentException("잘못된 사용자 입니다.");
+        }
+
+        Daily daily = dailyRepository.findDailyById(dailyId).orElseThrow(
+                ()->new NullPointerException("해당하는 일정이 존재하지 않습니다.")
+        );
+        daily.getCommentList().remove(comment);
+        commentRepository.delete(comment);
+
+        return id;
+    }
 }

@@ -27,7 +27,7 @@ public class Daily extends Timestamped {
     @Column(name = "password", nullable = false)
     private String password;    //비밀번호
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
 
 
