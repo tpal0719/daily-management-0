@@ -1,5 +1,10 @@
 package com.sparta.daily;
 
+import com.sparta.daily.dto.CommentRequestDto;
+import com.sparta.daily.dto.CommentResponseDto;
+import com.sparta.daily.dto.DailyRequestDto;
+import com.sparta.daily.entity.Comment;
+import com.sparta.daily.repository.CommentRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +25,8 @@ public class DailyApplicationTests {
 
     @Autowired
      DailyRepository dailyRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
 //    @Test
 //    @Transactional
@@ -34,5 +41,24 @@ public class DailyApplicationTests {
 //
 //        em.persist(daily);  // 영속성 컨텍스트에 메모 Entity 객체를 저장합니다.
 //    }
+
+
+    @Test
+    void test1(){
+        DailyRequestDto requestDto = new DailyRequestDto("제목","일정","나여","1");
+        Daily daily = new Daily(requestDto);
+
+        Comment comment = new Comment();
+        comment.setDailyId(1L);
+        comment.setId(1L);
+        comment.setUserId(1L);
+        comment.setContents("와 멋져요");
+        daily.addcommentList(comment);
+
+        CommentResponseDto commentRequestDto = new CommentResponseDto(comment);
+        commentRepository.save(comment);
+
+        dailyRepository.save(daily);
+    }
 
 }
