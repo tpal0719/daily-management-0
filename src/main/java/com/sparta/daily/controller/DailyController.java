@@ -37,7 +37,7 @@ public class DailyController {
     }
 
     @DeleteMapping("/dailys/{id}/{password}")
-    public Long deleteDaily(@PathVariable("id") Long id, @PathVariable("password") String password, @RequestBody DailyRequestDto requestDto) {
-        return dailyService.deleteDaily(id, password, requestDto);
+    public Long deleteDaily(@PathVariable("id") Long id, @PathVariable("password") String password) {
+        return dailyService.deleteDaily(id, password);
     }
 }

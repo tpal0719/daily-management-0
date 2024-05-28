@@ -58,7 +58,7 @@ public class DailyService {
     }
 
     // 5. 선택한 일정 삭제
-    public Long deleteDaily(Long id, String password, DailyRequestDto requestDto) {
+    public Long deleteDaily(Long id, String password) {
         Daily daily = dailyUtils.findDaily(id,dailyRepository);
         if (daily.getPassword().equals(password)) {
             dailyRepository.delete(daily);
