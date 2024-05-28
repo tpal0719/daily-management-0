@@ -27,7 +27,7 @@ public class Daily extends Timestamped {
     @Column(name = "password", nullable = false)
     private String password;    //비밀번호
 
-    @OneToMany(mappedBy = "comment")
+    @OneToMany
     private List<Comment> commentList = new ArrayList<>();
 
 
@@ -46,5 +46,10 @@ public class Daily extends Timestamped {
         this.contents = requestDto.contents();
         this.writer = requestDto.writer();
         this.password = requestDto.password();
+    }
+
+    // 해당 daily에 comment 추가
+    public void addcommentList(Comment comment) {
+        this.commentList.add(comment);
     }
 }
