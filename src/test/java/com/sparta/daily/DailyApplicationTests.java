@@ -51,7 +51,7 @@ public class DailyApplicationTests {
         Comment comment = new Comment();
         comment.setDailyId(1L);
         comment.setId(1L);
-        comment.setUserId(1L);
+        comment.setUserId("1");
         comment.setContents("와 멋져요");
         daily.addcommentList(comment);
 
