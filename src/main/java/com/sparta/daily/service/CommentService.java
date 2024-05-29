@@ -24,21 +24,23 @@ public class CommentService {
 
         System.out.println("requestDto.getDailyId() = " + requestDto.getDailyId());
         //선택한 일정의 ID를 입력 받지 않은 경우
-        if(requestDto.getDailyId()==null
-        || requestDto.getDailyId().toString().isBlank()
-        || requestDto.getDailyId().toString().isEmpty()){
-            throw new NullPointerException("일정이 선택되지 않았습니다.");
-        }
+//@Validation
+//        if(requestDto.getDailyId()==null
+//        || requestDto.getDailyId().toString().isBlank()
+//        || requestDto.getDailyId().toString().isEmpty()){
+//            throw new NullPointerException("일정이 선택되지 않았습니다.");
+//        }
         // 일정이 DB에 저장되지 않은 경우
         Daily daily = dailyRepository.findDailyById(requestDto.getDailyId()).orElseThrow(
 
                 () -> new NullPointerException("해당하는 일정이 없습니다.")
         );
         //댓글 내용이 비어 있는 경우
-        if (comment.getContents().isBlank()
-                || comment.getContents().isEmpty()) {
-            throw new IllegalArgumentException("댓글 내용이 없습니다.");
-        }
+//@Validation
+//        if (comment.getContents().isBlank()
+//                || comment.getContents().isEmpty()) {
+//            throw new IllegalArgumentException("댓글 내용이 없습니다.");
+//        }
 
         //save
         CommentResponseDto commentResponseDto = new CommentResponseDto(comment);
@@ -52,9 +54,10 @@ public class CommentService {
 
     public CommentResponseDto updateComment(String userId,Long id,Long dailyId,String contents) {
         //선택한 일정이나 댓글의 ID를 입력 받지 않은 경우
-        if(dailyId==null || id==null){
-            throw new NullPointerException("일정이나 댓글이 입력되지 않았습니다.");
-        }
+//@Validation
+//        if(dailyId==null || id==null){
+//            throw new NullPointerException("일정이나 댓글이 입력되지 않았습니다.");
+//        }
 
         //일정이나 댓글이 DB에 저장되지 않은 경우
         Comment comment = commentRepository.findAllByIdAndDailyId(id,dailyId).orElseThrow(
@@ -75,9 +78,10 @@ public class CommentService {
 
     public Long deleteComment(String userid,Long id, Long dailyId) {
         // 선택한 일정이나 댓글의 ID를 입력받지 않은 경우
-        if(dailyId==null || id==null){
-            throw new NullPointerException("일정이나 댓글이 입력되지 않았습니다.");
-        }
+//@Validation
+//        if(dailyId==null || id==null){
+//            throw new NullPointerException("일정이나 댓글이 입력되지 않았습니다.");
+//        }
         // 일정이나 댓글이 DB에 저장되지 않은 경우
         Comment comment = commentRepository.findAllByIdAndDailyId(id,dailyId).orElseThrow(
                 ()-> new NullPointerException("해당하는 댓글이 존재하지 않습니다.")

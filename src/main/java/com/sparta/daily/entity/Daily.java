@@ -27,25 +27,25 @@ public class Daily extends Timestamped {
     @Column(name = "password", nullable = false)
     private String password;    //비밀번호
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
 
 
     //  피드백: Java Record type 적용
     public Daily(DailyRequestDto requestDto) {
-        this.title = requestDto.title();
-        this.contents = requestDto.contents();
-        this.writer = requestDto.writer();
-        this.password = requestDto.password();
+        this.title = requestDto.getTitle();
+        this.contents = requestDto.getContents();
+        this.writer = requestDto.getWriter();
+        this.password = requestDto.getPassword();
     }
 
 
     //  피드백: Java Record type 적용
     public void update(DailyRequestDto requestDto) {
-        this.title = requestDto.title();
-        this.contents = requestDto.contents();
-        this.writer = requestDto.writer();
-        this.password = requestDto.password();
+        this.title = requestDto.getTitle();
+        this.contents = requestDto.getContents();
+        this.writer = requestDto.getWriter();
+        this.password = requestDto.getPassword();
     }
 
     // 해당 daily에 comment 추가
