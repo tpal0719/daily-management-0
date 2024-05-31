@@ -1,8 +1,10 @@
 package com.sparta.daily.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sparta.daily.entity.Daily;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 public class DailyRequestDto {

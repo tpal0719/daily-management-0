@@ -17,7 +17,8 @@ public class DailyController {
     }
 
     @PostMapping("/dailys")
-    public DailyResponseDto writeDaily(@RequestBody DailyRequestDto requestDto) {
+    public DailyResponseDto writeDaily(@RequestBody DailyRequestDto requestDto,
+                                        @RequestHeader("Authorization") String authorizationHeader) {
         return dailyService.writeDaily(requestDto);
     }
 
@@ -32,12 +33,14 @@ public class DailyController {
     }
 
     @PutMapping("/dailys/{id}/{password}")
-    public Long updateDaily(@PathVariable("id") Long id, @PathVariable("password") String password, @RequestBody DailyRequestDto requestDto) {
+    public Long updateDaily(@PathVariable("id") Long id, @PathVariable("password") String password, @RequestBody DailyRequestDto requestDto,
+                            @RequestHeader("Authorization") String authorizationHeader) {
         return dailyService.updateDaily(id, password, requestDto);
     }
 
     @DeleteMapping("/dailys/{id}/{password}")
-    public Long deleteDaily(@PathVariable("id") Long id, @PathVariable("password") String password) {
+    public Long deleteDaily(@PathVariable("id") Long id, @PathVariable("password") String password,
+                            @RequestHeader("Authorization") String authorizationHeader) {
         return dailyService.deleteDaily(id, password);
     }
 }
